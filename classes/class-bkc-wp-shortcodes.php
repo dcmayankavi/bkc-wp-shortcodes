@@ -26,12 +26,12 @@ if ( ! class_exists( 'BKC_WP_Shortcodes' ) ) :
 		private static $instance;
 
 		/**
-		 * WordPress Customizer Object
+		 * WordPress Shortcodes
 		 *
 		 * @since 1.0.0
-		 * @var $wp_customize
+		 * @var $shortcodes
 		 */
-		private $wp_customize;
+		private static $shortcodes;
 
 		/**
 		 * Initiate class
@@ -66,6 +66,43 @@ if ( ! class_exists( 'BKC_WP_Shortcodes' ) ) :
 			add_shortcode( 'wp_get_option',    array( $this, 'get_option' ) );
 			add_shortcode( 'wp_get_post_meta', array( $this, 'get_post_meta' ) );
 			add_shortcode( 'wp_get_metadata',  array( $this, 'get_metadata' ) );
+
+			self::$shortcodes = array(
+				'wp_get_the_post_thumbnail' => array(
+					'post' => null,
+					'size' => 'post-thumbnail',
+					'attr' => '',
+				),
+			);
+
+			$this->init_shortcodes();
+		}
+
+		public function init_shortcodes(){
+
+			if ( ! empty( self::$shortcodes ) ) {
+				foreach ( self::$shortcodes as $shortcode => $attributes ) {
+					add_shortcode( $shortcode,  function( $atts ) use ( $shortcode, $attributes ) {
+
+						$function = str_replace( 'wp_', '', $shortcode);
+						$args = shortcode_atts( $attributes, $atts );
+
+						if ( version_compare( PHP_VERSION, '5.6', '>=' ) ) {
+							$func_args = [];
+							foreach ( $args as $key => $value ) {
+								array_push( $func_args , $value );
+							}
+
+							// ... operator introduced in PHP 5.6.
+							if ( function_exists( $function ) ) {
+								return $function( ...$func_args );
+							} else {
+								return '';
+							}
+						}
+					});
+				}
+			}
 		}
 
 		/**
