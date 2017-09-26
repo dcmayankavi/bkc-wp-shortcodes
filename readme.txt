@@ -1,5 +1,6 @@
 === Shortcodes ===
 Contributors: dineshc
+Donate link: https://www.paypal.me/dcmayankavi
 Tags: wp-shortcodes, wordpress-shortcodes, option shortcode, meta shortcode.
 Requires at least: 3
 Tested up to: 4.8.2
