@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: BKC WP Shortcodes
+ * Plugin Name: Shortcodes
  * Description: This Plugin provides multiple wordpress core shortcodes.
  * Version: 1.0.0
  * Author: Dinesh Chouhan
