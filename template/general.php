@@ -8,7 +8,7 @@
 
 ?>
 <div class="wrap ast-clear bkc-wp-shortcodes">
-	<h1><?php esc_html_e( 'BKC WP Shortcodes', 'bkc-wp-shortcodes' ) ?></h1>
+	<h1><?php esc_html_e( 'Shortcodes', 'bkc-wp-shortcodes' ) ?></h1>
 	<div id="dashboard-widgets-wrap">
 		<div id="dashboard-widgets" class="metabox-holder">
 			<div id="postbox-container-1" class="postbox-container">
@@ -22,7 +22,7 @@
 								</div>
 								<br />
 								<strong><?php esc_html_e( 'Usage: ', 'bkc-wp-shortcodes' ) ?></strong>
-								<code>[wp_get_option option='' default=false]</code>
+								<code>[wp_get_option option='' default=false subkey='']</code>
 								<strong><?php esc_html_e( 'Example: ', 'bkc-wp-shortcodes' ) ?></strong>
 								<code>[wp_get_option option='blogname']</code>
 							</div>
@@ -39,7 +39,7 @@
 								</div>
 								<br />
 								<strong><?php esc_html_e( 'Usage: ', 'bkc-wp-shortcodes' ) ?></strong>
-								<code>[wp_get_metadata meta_type ='' object_id='' meta_key='' single=false]</code>
+								<code>[wp_get_metadata meta_type ='' object_id='' meta_key='' single=false subkey='']</code>
 								<strong><?php esc_html_e( 'Example: ', 'bkc-wp-shortcodes' ) ?></strong>
 								<code>[wp_get_metadata meta_type='comment' meta_key='your-meta-field' single=true]</code>
 								<?php esc_html_e('This will return current post meta.', 'bkc-wp-shortcodes' ); ?>
@@ -61,7 +61,7 @@
 								</div>
 								<br />
 								<strong><?php esc_html_e( 'Usage: ', 'bkc-wp-shortcodes' ) ?></strong>
-								<code>[wp_get_post_meta post_id='' key='' single=false]</code>
+								<code>[wp_get_post_meta post_id='' key='' single=false subkey='']</code>
 								<strong><?php esc_html_e( 'Example: ', 'bkc-wp-shortcodes' ) ?></strong>
 								<code>[wp_get_post_meta key='your-meta-field' single=true]</code>
 								<?php esc_html_e('This will return current post meta.', 'bkc-wp-shortcodes' ); ?>

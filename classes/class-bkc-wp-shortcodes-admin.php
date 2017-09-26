@@ -1,6 +1,6 @@
 <?php
 /**
- * BKC WP Shortcodes Admin
+ * Shortcodes Admin
  *
  * @package BKC WP Shortcodes
  * @author Dinesh Chouhan
@@ -64,6 +64,21 @@ if ( ! class_exists( 'BKC_WP_Shortcodes_Admin' ) ) :
 		public function init() {
 			add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 			add_action( 'admin_head', array( $this, 'admin_head' ) );
+			add_action( 'plugin_action_links_' . BKC_WP_SHORTCODES_BASE, array( $this, 'action_links' ) );
+		}
+
+		/**
+		 * Show action links on the plugin screen.
+		 *
+		 * @param   mixed $links Plugin Action links.
+		 * @return  array
+		 */
+		function action_links( $links ) {
+			$action_links = array(
+				'settings' => '<a href="' . esc_url( get_dashboard_url(  0, 'index.php?page=bkc-wp-shortcodes' ) ) . '" aria-label="' . esc_attr__( 'View Shortcodes', 'astra-addon' ) . '">' . esc_html__( 'Settings', 'astra-addon' ) . '</a>',
+			);
+
+			return array_merge( $action_links, $links );
 		}
 
 		/**
@@ -73,8 +88,8 @@ if ( ! class_exists( 'BKC_WP_Shortcodes_Admin' ) ) :
 		 */
 		public function admin_menu() {
 			add_dashboard_page( 
-				__( 'BKC WP Shortcodes', 'bkc-wp-shortcodes' ),
-				__( 'BKC WP Shortcodes', 'bkc-wp-shortcodes' ),
+				__( 'Shortcodes', 'bkc-wp-shortcodes' ),
+				__( 'Shortcodes', 'bkc-wp-shortcodes' ),
 				'read', 
 				'bkc-wp-shortcodes', 
 				array( $this, 'admin_menu_markup' )

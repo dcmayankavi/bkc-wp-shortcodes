@@ -1,21 +1,27 @@
-=== BKC WP Shortcodes ===
+=== Shortcodes ===
 Contributors: dineshc
 Tags: wp-shortcodes, wordpress-shortcodes, option shortcode, meta shortcode.
 Requires at least: 3
 Tested up to: 4.8.2
 
-BKC WP Shortcode will helps to get option and post meta using shortcode.
+Shortcodes plugin will helps to get option, post meta and other core data using shortcode.
 
 == Description ==
 
-BKC WP Shortcode providing WordPress core shortcode for get option, get post meta, get custom post meta ect using shortcode.
+Shortcodes providing WordPress core shortcode for get option, get post meta, get custom post meta and other WordPress data using shortcode.
 Shortcodes:
+
 1. [wp_get_option]
 Ex. [wp_get_option option='blogname']
+
 2. [wp_get_post_meta]
 Ex. [wp_get_post_meta key='your-meta-field' single=true]
+
 3. [wp_get_metadata]
 Ex. [wp_get_metadata meta_type='comment' meta_key='your-meta-field' single=true]
+
+4. [wp_get_the_thumbnail]
+Ex. [wp_get_the_thumbnail]
 == Installation ==
 
 1. Install either via the WordPress.org plugin directory, or by uploading the files to your server.
