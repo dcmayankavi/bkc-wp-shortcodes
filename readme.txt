@@ -1,5 +1,6 @@
 === Shortcodes ===
 Contributors: dineshc
+Donate link: https://www.paypal.me/dcmayankavi
 Tags: wp-shortcodes, wordpress-shortcodes, option shortcode, meta shortcode.
 Requires at least: 3
 Tested up to: 4.8.2
@@ -33,3 +34,6 @@ Ex. [wp_get_the_thumbnail]
 
 = 1.0.0 =
 * Initial release.
+
+= 1.0.1 =
+* Shortcodes generator array updated.
