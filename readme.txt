@@ -34,3 +34,6 @@ Ex. [wp_get_the_thumbnail]
 
 = 1.0.0 =
 * Initial release.
+
+= 1.0.1 =
+* Shortcodes generator array updated.
