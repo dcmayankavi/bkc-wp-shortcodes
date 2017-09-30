@@ -23,6 +23,10 @@ Ex. [wp_get_metadata meta_type='comment' meta_key='your-meta-field' single=true]
 
 4. [wp_get_the_thumbnail]
 Ex. [wp_get_the_thumbnail]
+
+5. Use of shortcode as parameter of another shortcode.
+Ex. [wp_get_the_post_thumbnail post={{wp_get_the_ID}} size="medium" ]
+"wp_get_the_ID" is a shortcode to get current post id which is is passed to post parameter of "wp_get_the_post_thumbnail" shortcode. To pass shortcode as parameter value you need to use {{shortcode}} syntax instead of [shortcode].
 == Installation ==
 
 1. Install either via the WordPress.org plugin directory, or by uploading the files to your server.
@@ -37,3 +41,6 @@ Ex. [wp_get_the_thumbnail]
 
 = 1.0.1 =
 * Shortcodes generator array updated.
+
+= 1.0.2 =
+* Added support for shortcode as parameter of another shortcode.

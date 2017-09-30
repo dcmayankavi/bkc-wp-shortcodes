@@ -784,6 +784,9 @@ if ( ! class_exists( 'BKC_WP_Shortcodes' ) ) :
 						if ( version_compare( PHP_VERSION, '5.6', '>=' ) ) {
 							$func_args = [];
 							foreach ( $args as $key => $value ) {
+								if ( 0 === strpos( $value, '{{' ) ) {
+									$value = get_shortcode_from_attr( $value );
+								}
 								array_push( $func_args , $value );
 							}
 
@@ -797,6 +800,24 @@ if ( ! class_exists( 'BKC_WP_Shortcodes' ) ) :
 					});
 				}
 			}
+		}
+
+		/**
+		 * Gets the shortcode from attribute.
+		 *
+		 * @since 1.0.2
+		 * @param  string  $value  The value.
+		 * @return string
+		 */
+		public function get_shortcode_from_attr( $value ) {
+			$shortcode = str_replace( '}}', '', str_replace( '{{', '', $value ) );
+			$shortcode = explode( ' ', $shortcode );
+			$shortcode = $shortcode[0];
+			if ( shortcode_exists( $shortcode ) ) {
+				$actual_shortcode = str_replace( '}}', ']', str_replace( '{{', '[', $value ) );
+				$value = do_shortcode( $actual_shortcode, true );
+			}
+			return $value;
 		}
 
 		/**
@@ -824,7 +845,7 @@ if ( ! class_exists( 'BKC_WP_Shortcodes' ) ) :
 		/**
 		 * wp_get_network_option shortcode callback.
 		 *
-		 * @since 1.0.0
+		 * @since 1.0.1
 		 */
 		public function get_network_option( $atts ) {
 
