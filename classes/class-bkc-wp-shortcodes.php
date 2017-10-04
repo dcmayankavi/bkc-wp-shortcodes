@@ -780,22 +780,76 @@ if ( ! class_exists( 'BKC_WP_Shortcodes' ) ) :
 
 						$function = preg_replace( '/wp_/', '', $shortcode, 1 );
 						$args = shortcode_atts( $attributes, $atts );
-
-						if ( version_compare( PHP_VERSION, '5.6', '>=' ) ) {
-							$func_args = [];
-							foreach ( $args as $key => $value ) {
-								if ( 0 === strpos( $value, '{{' ) ) {
-									$value = get_shortcode_from_attr( $value );
+	
+						if ( function_exists( $function ) ) {
+							if ( version_compare( PHP_VERSION, '5.6', '>=' ) ) {
+								$func_args = [];
+								foreach ( $args as $key => $value ) {
+									if ( 0 === strpos( $value, '{{' ) ) {
+										$value = get_shortcode_from_attr( $value );
+									}
+									array_push( $func_args , $value );
 								}
-								array_push( $func_args , $value );
-							}
 
-							// ... operator introduced in PHP 5.6.
-							if ( function_exists( $function ) ) {
+								// ... operator introduced in PHP 5.6.
 								return $function( ...$func_args );
 							} else {
-								return '';
+								$count = count( $args );
+								if ( $count > 0 ) {
+									$args_keys = array_keys( $args );
+								}
+								switch ( $count ) {
+									case 0:
+										return $function();
+										break;
+
+									case 1:
+										return $function( $args[ $args_keys[0] ] );
+										break;
+
+									case 2:
+										return $function( $args[ $args_keys[0] ], $args[ $args_keys[1] ] );
+										break;
+
+									case 3:
+										return $function( $args[ $args_keys[0] ], $args[ $args_keys[1] ], $args[ $args_keys[2] ] );
+										break;
+
+									case 4:
+										return $function( $args[ $args_keys[0] ], $args[ $args_keys[1] ], $args[ $args_keys[2] ], $args[ $args_keys[3] ] );
+										break;
+
+									case 5:
+										return $function( $args[ $args_keys[0] ], $args[ $args_keys[1] ], $args[ $args_keys[2] ], $args[ $args_keys[3] ], $args[ $args_keys[4] ] );
+										break;
+
+									case 6:
+										return $function( $args[ $args_keys[0] ], $args[ $args_keys[1] ], $args[ $args_keys[2] ], $args[ $args_keys[3] ], $args[ $args_keys[4] ], $args[ $args_keys[5] ] );
+										break;
+
+									case 7:
+										return $function( $args[ $args_keys[0] ], $args[ $args_keys[1] ], $args[ $args_keys[2] ], $args[ $args_keys[3] ], $args[ $args_keys[4] ], $args[ $args_keys[5] ], $args[ $args_keys[6] ] );
+										break;
+
+									case 8:
+										return $function( $args[ $args_keys[0] ], $args[ $args_keys[1] ], $args[ $args_keys[2] ], $args[ $args_keys[3] ], $args[ $args_keys[4] ], $args[ $args_keys[5] ], $args[ $args_keys[6] ], $args[ $args_keys[7] ] );
+										break;
+
+									case 9:
+										return $function( $args[ $args_keys[0] ], $args[ $args_keys[1] ], $args[ $args_keys[2] ], $args[ $args_keys[3] ], $args[ $args_keys[4] ], $args[ $args_keys[5] ], $args[ $args_keys[6] ], $args[ $args_keys[7] ], $args[ $args_keys[8] ] );
+										break;
+
+									case 10:
+										return $function( $args[ $args_keys[0] ], $args[ $args_keys[1] ], $args[ $args_keys[2] ], $args[ $args_keys[3] ], $args[ $args_keys[4] ], $args[ $args_keys[5] ], $args[ $args_keys[6] ], $args[ $args_keys[7] ], $args[ $args_keys[8] ], $args[ $args_keys[9] ] );
+										break;
+
+									default:
+										return '';
+										break;
+								}
 							}
+						} else {
+							return '';
 						}
 					});
 				}
