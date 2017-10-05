@@ -44,3 +44,6 @@ Ex. [wp_get_the_post_thumbnail post={{wp_get_the_ID}} size="medium" ]
 
 = 1.0.2 =
 * Added support for shortcode as parameter of another shortcode.
+
+= 1.0.3 =
+* Added support for PHP version older then 5.6.
