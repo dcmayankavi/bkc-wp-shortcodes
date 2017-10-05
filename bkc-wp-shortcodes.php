@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Shortcodes
  * Description: This Plugin provides multiple wordpress core shortcodes.
- * Version: 1.0.3
+ * Version: 1.0.4
  * Author: Dinesh Chouhan
  * Author URI: http://dineshchouhan.com
  * Text Domain: bkc-wp-shortcodes

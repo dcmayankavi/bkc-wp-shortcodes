@@ -54,7 +54,7 @@ if ( ! class_exists( 'BKC_WP_Shortcodes_Loader' ) ) :
 		 */
 		public function __construct() {
 
-			define( 'BKC_WP_SHORTCODES_VER', '1.0.3' );
+			define( 'BKC_WP_SHORTCODES_VER', '1.0.4' );
 			define( 'BKC_WP_SHORTCODES_FILE', trailingslashit( dirname( dirname( __FILE__ ) ) ) . 'bkc-wp-shortcodes.php' );
 			define( 'BKC_WP_SHORTCODES_BASE', plugin_basename( BKC_WP_SHORTCODES_FILE ) );
 			define( 'BKC_WP_SHORTCODES_DIR', plugin_dir_path( BKC_WP_SHORTCODES_FILE ) );
