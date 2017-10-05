@@ -63,11 +63,6 @@ if ( ! class_exists( 'BKC_WP_Shortcodes' ) ) :
 		 */
 		public function init() {
 
-			if ( version_compare( PHP_VERSION, '5.6', '<' ) ) {
-				add_action( 'admin_notices', array( $this, 'php_version_notice' ) );
-				return;
-			}
-
 			add_shortcode( 'wp_get_option',    array( $this, 'get_option' ) );
 			add_shortcode( 'wp_get_network_option',    array( $this, 'get_network_option' ) );
 			add_shortcode( 'wp_get_post_meta', array( $this, 'get_post_meta' ) );
@@ -747,16 +742,6 @@ if ( ! class_exists( 'BKC_WP_Shortcodes' ) ) :
 			));
 
 			$this->init_shortcodes();
-		}
-
-		/**
-		 * Admin Notice
-		 * 
-		 * @since 1.0.0
-		 * @return void
-		 */
-		public function php_version_notice() {
-			echo '<div class="error"><p>' . __( 'Shortcodes plugin requires PHP 5.6 to function properly. Please upgrade PHP or deactivate Plugin Name.', 'bkc-wp-shortcodes' ) . '</p></div>';
 		}
 
 		/**
