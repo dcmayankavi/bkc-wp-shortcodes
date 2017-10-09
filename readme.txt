@@ -4,6 +4,8 @@ Donate link: https://www.paypal.me/dcmayankavi
 Tags: wp-shortcodes, wordpress-shortcodes, option shortcode, meta shortcode.
 Requires at least: 3
 Tested up to: 4.8.2
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Shortcodes plugin will helps to get option, post meta and other core data using shortcode.
 
